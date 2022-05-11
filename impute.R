@@ -47,6 +47,22 @@ df$air_pollution[!is.na(df$air_pollution_above40)] = df$air_pollution_above40[!i
 check <- df[, -c(1,2,12,13,14)]
 check1 <- check[,-c(2)]
 
+boxplot(check1$gdp,check1$Happiness,check1$meat,check1$temp,
+        check1$air_pollution,check1$fruit,
+        check1$veggie,check1$ed_mean,data=check1,
+      names = c("gdp","Happiness","meat","temp","air_pollution",
+                "fruit","veggie","ed_mean"))
+
+boxplot(check1$gdp, xlab = "gdp")
+boxplot(check1$Happiness, xlab = "Happiness")
+boxplot(check1$meat, xlab = "meat")
+boxplot(check1$temp, xlab = "temp")
+boxplot(check1$air_pollution, xlab = "air_pollution")
+boxplot(check1$fruit, xlab = "fruit")
+boxplot(check1$veggie, xlab = "veggie")
+boxplot(check1$ed_mean, xlab = "ed_mean")
+
+check1$gdp <- exp(check1$gdp)
 ggpairs(check1,upper = list(continuous = "points"),lower = list(continuous = "cor"))
 
 

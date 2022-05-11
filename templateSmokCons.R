@@ -30,6 +30,7 @@ tot$ed_mean <- sel$mean
 
 dev.off()
 tot1 = tot[,-c(2)]
+tot1$`GDP per capita` = exp(tot1$`GDP per capita`)
 ggpairs(tot1,upper = list(continuous = "points"),lower = list(continuous = "cor"))
 
 df <- tot
